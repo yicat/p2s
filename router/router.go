@@ -13,7 +13,9 @@ func Load() *gin.Engine {
 
 	appGroup := rootR.Group("/api/app")
 	appGroup.GET("/", pv.GetAppList)
+	appGroup.GET("/:appID", pv.GetAppByID)
 	appGroup.POST("/", pv.CreateApp)
+	appGroup.DELETE("/:appID", pv.DeleteApp)
 
 	return rootR
 }
